@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "e92bac59-cf69-4b8e-9778-aee99dddcf19",
+		"name": "Skedify PBA integration quickstart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer qualification with authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-IBM-Client-Id",
+						"value": "1234",
+						"type": "text"
+					},
+					{
+						"key": "X-IBM-Client-Secret",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"globalTransactionId\": \"d690cda9-7b9b-4530-9e98-8ceaf0ac9d42\",\r\n    \"category\": {\r\n        \"externalKey\": \"HOME-INSURANCE\",\r\n        \"key\": \"HOME-INSURANCE\",\r\n        \"selfService\": false\r\n    },\r\n    \"customer\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"email\": \"john.doe@acme.com\"\r\n    },\r\n    \"qualificationFields\": [\r\n        {\r\n            \"key\": \"purchaseValue\",\r\n            \"value\": \"295000\",\r\n            \"type\": \"number\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/qualification",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"qualification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer qualification without authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-IBM-Client-Id",
+						"value": "1234",
+						"type": "text"
+					},
+					{
+						"key": "X-IBM-Client-Secret",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"globalTransactionId\": \"d690cda9-7b9b-4530-9e98-8ceaf0ac9d42\",\r\n    \"category\": {\r\n        \"externalKey\": \"HOME-INSURANCE\",\r\n        \"key\": \"HOME-INSURANCE\",\r\n        \"selfService\": false\r\n    },\r\n    \"customer\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"email\": \"john.doe@acme.com\"\r\n    },\r\n    \"qualificationFields\": [\r\n        {\r\n            \"key\": \"purchaseValue\",\r\n            \"value\": \"295000\",\r\n            \"type\": \"number\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/qualification",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"qualification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
