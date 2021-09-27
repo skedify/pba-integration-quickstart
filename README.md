@@ -2,6 +2,12 @@
 
 An example app that illustrates how to integrate with the Skedify PBA. Written in Node.js.
 
+## Table of contents
+
+* [What the app does](#what-the-app-does)
+* [Prerequisites](#prerequisites)
+* [Usage](#usage)
+
 ## What the app does
 
 1. **Create a booking context**
@@ -35,7 +41,7 @@ Before running the quickstart app, make sure you have:
 1. The tools required to run using the method of your choice:
    - Option 1: Running locally using Node.js: [Node.js (>=16)](https://nodejs.org)
    - Option 2: Running in a Docker container: [Docker (>=1.13)](https://docs.docker.com/install/)
-2. An OAuth client ID and secret for interacting with the Skedify PBA API
+2. A client ID and secret for interacting with the Skedify PBA API
 
 ## Usage
 
@@ -66,6 +72,4 @@ Before running the quickstart app, make sure you have:
    docker run -p 4000:4000 -e PBA_API_BASE_URL=$PBA_API_BASE_URL -e PBA_CLIENT_ID=$PBA_CLIENT_ID -e PBA_CLIENT_SECRET=$PBA_CLIENT_SECRET -e CLIENT_ID=$CLIENT_ID -e CLIENT_SECRET=$CLIENT_SECRET skedify/pba-integration-quickstart
    ```
 
-4. **Browse to**
-   
-   `http://localhost:4000`
+4. **Browse to** `http://localhost:4000`

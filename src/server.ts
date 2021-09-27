@@ -6,13 +6,13 @@ import { CreateContextResponse } from './context/create-context.response';
 import { QualificationRequest } from './qualification/qualification.request';
 import { QualificationResponse } from './qualification/qualification.response';
 
-if (!process.env.PBA_CLIENT_ID || !process.env.PBA_CLIENT_SECRET || !process.env.PBA_API_BASE_URL) {
-  throw new Error('Missing PBA_CLIENT_ID, PBA_CLIENT_SECRET or PBA_API_BASE_URL environment variable.')
+if (!process.env.PBA_API_BASE_URL || !process.env.PBA_CLIENT_ID || !process.env.PBA_CLIENT_SECRET) {
+  throw new Error('Missing PBA_API_BASE_URL PBA_CLIENT_ID or PBA_CLIENT_SECRET environment variable.')
 }
 
+const PBA_API_BASE_URL = process.env.PBA_API_BASE_URL;
 const PBA_CLIENT_ID = process.env.PBA_CLIENT_ID;
 const PBA_CLIENT_SECRET = process.env.PBA_CLIENT_SECRET;
-const PBA_API_BASE_URL = process.env.PBA_API_BASE_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const PORT = process.env.PORT || 4000;
@@ -24,13 +24,13 @@ async function startServer(): Promise<void> {
 
   //===========================================================================//
 
-  //===================================================//
-  //   Using an access token to call the PBA API   //
-  //===================================================//
+  //==================================================//
+  //   Using client credentials to call the PBA API   //
+  //==================================================//
 
   async function createBookingContext() {
     console.log('');
-    console.log('=== Creating a bookin context ===');
+    console.log('=== Creating a booking context ===');
 
     // This is where you would insert the data that you want to pass into the context
     const createContextRequest = {
@@ -79,9 +79,9 @@ async function startServer(): Promise<void> {
     }
   });
 
-  //===========================//
-  //   Qualifying a customer   //
-  //===========================//
+  //===============================================//
+  //   Handling a customer qualification request   //
+  //===============================================//
 
   app.post('/qualification', async (req, res) => {
     if (!!CLIENT_ID && !!CLIENT_SECRET && (req.headers['x-ibm-client-id'] !== CLIENT_ID || req.headers['x-ibm-client-secret'] !== CLIENT_SECRET)) {
@@ -104,7 +104,7 @@ async function startServer(): Promise<void> {
 
   async function qualifyCustomer(req: QualificationRequest) {
     console.log('');
-    console.log('=== Qualifying a customer ===');
+    console.log('=== Handling a customer qualification request ===');
     console.log('Input data:');
     console.log(req);
 
