@@ -34,13 +34,27 @@ async function startServer(): Promise<void> {
 
     // This is where you would insert the data that you want to pass into the context
     const createContextRequest = {
-      category: 'Home Insurance',
+      category: 'Djairho',
       customer: {
-        firstName: 'John',
-        lastName: 'Doe',
+        first_name: 'John',
+        last_name: 'Doe',
         email: 'john.doe@acme.com',
-        reference: 'd9d08d81-a5e9-e205-abc5-c85171bf167a'
-      }
+        reference: 'd9d08d81-a5e9-e205-abc5-c85171bf167a',
+        location: {
+          street: 'Main Street',
+          house_number: '1',
+          city: 'London',
+          postal_code: '1111',
+          country: 'United Kingdom'
+        }
+      },
+      filters: [
+        {
+          listings: [
+            '123'
+          ]
+        }
+      ]
     } as CreateContextRequest;
 
     const axiosOptions = {

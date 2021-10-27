@@ -1,6 +1,6 @@
 {
   "name": "pba-integration-quickstart",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "main": "./dist/server.js",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
