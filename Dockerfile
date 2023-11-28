@@ -1,4 +1,4 @@
-FROM node:16-alpine as builder
+FROM node:20-alpine as builder
 
 ENV NODE_ENV production
 ENV CI true
@@ -14,14 +14,14 @@ RUN npm ci --also=dev
 
 COPY --chown=node:node . ./
 
-RUN npm run ts:compile && npm prune --production
+RUN npm run build && npm prune --production
 
 RUN cp .env.production dist/.env \
     && cp package*.json dist/ \
     && cp -r node_modules dist/
 
 # Running image
-FROM node:16-alpine
+FROM node:20-alpine
 
 ENV NODE_ENV production
 ENV CI true

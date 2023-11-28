@@ -31,7 +31,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/qualification",
+					"raw": "http://127.0.0.1:4000/qualification",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -70,7 +70,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/qualification",
+					"raw": "http://127.0.0.1:4000/qualification",
 					"protocol": "http",
 					"host": [
 						"localhost"
